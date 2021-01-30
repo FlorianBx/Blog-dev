@@ -30,9 +30,8 @@ function Bio() {
             <p>
               Écrit par <strong>{author}</strong>.
               {` `}
-              <image src='https://lici.fr/wp-content/uploads/2019/06/linkedin.png' />
               <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
+                
               </a>
             </p>
           </div>

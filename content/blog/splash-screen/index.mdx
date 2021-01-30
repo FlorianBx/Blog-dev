@@ -1,0 +1,80 @@
+---
+title: Faire un splashScrenn _#Flutter
+date: '2021-01-30T07:35:32.169Z'
+---
+
+## QuickTips Flutter:
+
+Sur beaucoup d'application, on a une sorte de page de chargement à leur lancement. C'est ce que l'on appel un splash screen et nous allons voir ici comment faire cette chose de la manière la plus simple possible.
+
+### -1 Créer le routeur
+
+  Oui parcequ'en fait, faire une page qui affiche un logo ou un chargement pendant ***X*** secondes, il faut bien rediriger quelque part après, et c'est la que le routeur entre en action.
+
+  ```js
+  // Router
+  class MyApp extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+      return MaterialApp(
+        home: SplashScreen(),
+        routes: {
+          '/home-screen': (context) => HomeScreen(),
+        },
+      );
+    }
+  }
+  ```
+
+  Bon à ce niveau le routeur: done ✅
+
+### -2 Le Splash Screen
+
+  A ce niveau il est temps de rentrer dans le vif du sujet:
+
+  ```js
+  // SplashScreen
+    class SplashScreen extends StatefulWidget {
+      @override
+      _SplashScreenState createState() => _SplashScreenState();
+    }
+
+    class _SplashScreenState extends State<SplashScreen> {
+      @override
+      void initState() {
+        super.initState();
+        Future.delayed(const Duration(milliseconds: 2000),
+          () => Navigator.pushNamed(context, '/home-screen'),
+        );
+      }
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          backgroundColor: Colors.white,
+          body: Center(
+            child: FlutterLogo(
+              size: 100.0,
+            ),
+          ),
+        );
+      }
+    }
+```
+
+---
+
+## **Time to explain:**
+
+La partie qui peut poser soucis se trouve dans l'initState, la ou toute la logique du splash screen s'effectue en fin de compte.
+
+#### <span style="color: #0276E8">-1 Future</span>
+Un future est utilisé pour représenter une valeur potentielle, ou une erreur, qui sera disponible à un moment donné dans le futur.
+
+#### <span style="color: #0276E8">-2 Future<span style="color: #BC0256">.delayed</span></span>
+Crée un futur qui exécute son calcul après un délai.
+
+Ce **.Delayed** prend une **Duration** qui est ni plus ni moins que la durée avant execution de la function.
+
+
+Et voilà c'est tout pour ce QuickTips, bon code à tous.

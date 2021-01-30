@@ -1,0 +1,74 @@
+---
+title: Le ternaire WTF ? 🚀
+date: '2021-01-30T06:36:32.169Z'
+---
+
+Le ternaire pour le comprendre rien de mieux qu'un petit exemple:
+
+<h2 style="color: #18C79A"># Good Practice</h2>
+
+##### - If statement
+
+```js
+// if mode
+  if (test == 0) {
+    return true;
+  }
+  return false;
+```
+
+##### - Ternaire:
+
+```js
+// ternary mode
+  return (test == 0 ? true : false);
+```
+
+Alors voilà les deux codes font exactement la même chose. 
+Le ternaire est une manière condensée, d'écrire une condition en utilisant une syntaxe basée sur les opérateurs <span style="color:purple">***?***</span> et <span style="color:purple">***:***</span>.
+
+Vous l'aurez peut être compris, <span style="color:purple">***?***</span> équivaut à un if et le <span style="color:purple">***:***</span> équivaut à un else.
+
+---
+
+<h2 style="color: #ff5e78"># Bad Practice</h2>
+
+- Le ternary hell
+
+  Ce que j'aime à appelé le ternary hell, c'est le fait d'emboiter des ternaires dans le but de faire un if elseif.
+
+  Cet pratique est extrêment déconseillé pour la lisibilité du code et de son maintient.
+
+  ##### - If statement:
+
+  ```js
+  // if mode
+    int age = 24;
+
+    if (age > 18 && age < 50) {
+      return 'Vous êtes majeur';
+    } else if (age > 3 age < 18) {
+      return 'Vous êtes mineur';
+    } else if (age < 3) {
+      return 'Vous êtes un bébé !'
+    }else {
+      return 'As-tu acheté ta Rolex ?';
+    }
+  ```
+
+  ##### - Ternaire:
+
+  ```js
+  // ternary mode
+    int age = 24;
+
+    return (age > 18 && age < 50 
+    ? 'Vous êtes majeur' 
+    : age > 3 && age < 18 
+    ? 'Vous êtes mineur' 
+    : age < 3 ? 'Vous êtes un bébé !' 
+    : 'As-tu acheté ta Rolex ?');
+
+  ```
+
+  Bon on ne va pas se mentir, niveau lisibilité dans les deux cas on a vu mieux, mais le ternaire à ce petit quelque chose en plus, qui me donne envie de delete tout votre code 😈.
