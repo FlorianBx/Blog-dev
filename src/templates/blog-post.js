@@ -41,8 +41,9 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-1),
           }}
         >
-          {post.frontmatter.date}
+          {post.frontmatter.date + ' . ' + post.frontmatter.readingTime + ' minute de lecture'}
         </p>
+
         <MDXRenderer>{post.body}</MDXRenderer>
         <hr
           style={{
@@ -110,6 +111,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        readingTime
       }
       body
     }
