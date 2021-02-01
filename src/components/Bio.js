@@ -27,18 +27,77 @@ function Bio() {
                 borderRadius: `100%`,
               }}
             />
-            <p>
-              Hey, moi c'est <strong>{author}</strong>. Il est écrit dans les tablettes de Skélos
-              que seul un gnome des Forêts du Nord unijambiste dansant à la pleine lune au milieu 
-              de douze statuettes de Gladeulfeurha enroulées dans un jambon trouvera un sens à cette bio !!
-              {` `}
-              <br />
-              <a href={`https://www.linkedin.com/in/${social.linkedin}`} target="_blank">Linkedin</a>
-              <br />
-              <a href={`https://www.instagram.com/${social.instagram}`} target="_blank">Instagram</a>
-              <br />
-              <a href={`https://twitter.com/${social.twitter}`} target="_blank">Twitter</a>
-            </p>
+            <div>
+              <p>
+                Hey, moi c'est <strong>{author}</strong>. Il est écrit dans les tablettes de Skélos
+                que seul un gnome des Forêts du Nord unijambiste dansant à la pleine lune au milieu 
+                de douze statuettes de Gladeulfeurha enroulées dans un jambon trouvera un sens à cette bio !!
+              </p>
+              <div
+                style={{
+                  display: `flex`,
+                  justifyContent: `space-around`,
+                  alignItems: `center`,
+                  // backgroundColor: 'red'
+                }}
+              >
+              <a 
+                href={`https://www.linkedin.com/in/${social.linkedin}`} 
+                target="_blank"             
+                style={{
+                  boxShadow: `none`,
+                  textDecoration: `none`,
+                  color: `inherit`,
+                }}
+                >
+                <Image
+                  fixed={data.linkedin.childImageSharp.fixed}
+                  alt={author}
+                  style={{
+                    marginRight: rhythm(1 / 2),
+                    marginBottom: 0,
+                    minWidth: 25,
+                  }}
+                />
+              </a>
+              <a 
+                href={`https://www.instagram.com/${social.instagram}`}
+                target="_blank"             
+                style={{
+                  boxShadow: `none`,
+                  textDecoration: `none`,
+                  color: `inherit`,
+                }}
+              >
+                <Image
+                    fixed={data.instagram.childImageSharp.fixed}
+                    alt={author}
+                    style={{
+                      marginBottom: 0,
+                      minWidth: 25,
+                    }}
+                  />
+                </a>
+                <a 
+                  href={`https://twitter.com/${social.twitter}`}
+                  target="_blank"             
+                  style={{
+                    boxShadow: `none`,
+                    textDecoration: `none`,
+                    color: `inherit`,
+                  }}
+                  >
+                  <Image
+                      fixed={data.twitter.childImageSharp.fixed}
+                      alt={author}
+                      style={{
+                        marginBottom: 0,
+                        minWidth: 40,
+                      }}
+                      />
+                </a>
+              </div>
+            </div>
           </div>
         )
       }}
@@ -49,6 +108,27 @@ function Bio() {
 const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 50, height: 50) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    instagram: file(absolutePath: {regex: "/insta.png/"}) {
+      childImageSharp {
+        fixed(width: 38, height: 38) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    linkedin: file(absolutePath: {regex: "/linkedin.png/"}) {
+      childImageSharp {
+        fixed(width: 30, height: 30) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    twitter: file(absolutePath: {regex: "/twitter.png/"}) {
       childImageSharp {
         fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed
