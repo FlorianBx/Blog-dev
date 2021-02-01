@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: `Le blog d'un dev`,
-    author: `Florian beaumont`,
-    description: `An extension of the gatsby starter blog, with support for MDX`,
-    siteUrl: `https://gatsby-starter-blog-mdx-demo.netlify.com/`,
+    author: `Florian`,
+    description: `Un blog à propos de code`,
+    siteUrl: `https://leblogdundev.netlify.app/`,
     social: {
       twitter: `flbeaumo`,
-      instagram: ``,
-      linkedin: ``,
+      instagram: `fb_develop`,
+      linkedin: `florianbeaumont`,
       
     },
   },

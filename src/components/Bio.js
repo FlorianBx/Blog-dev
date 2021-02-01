@@ -28,11 +28,16 @@ function Bio() {
               }}
             />
             <p>
-              Écrit par <strong>{author}</strong>.
+              Hey, moi c'est <strong>{author}</strong>. Il est écrit dans les tablettes de Skélos
+              que seul un gnome des Forêts du Nord unijambiste dansant à la pleine lune au milieu 
+              de douze statuettes de Gladeulfeurha enroulées dans un jambon trouvera un sens à cette bio !!
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                
-              </a>
+              <br />
+              <a href={`https://www.linkedin.com/in/${social.linkedin}`} target="_blank">Linkedin</a>
+              <br />
+              <a href={`https://www.instagram.com/${social.instagram}`} target="_blank">Instagram</a>
+              <br />
+              <a href={`https://twitter.com/${social.twitter}`} target="_blank">Twitter</a>
             </p>
           </div>
         )
@@ -54,7 +59,9 @@ const bioQuery = graphql`
       siteMetadata {
         author
         social {
-          twitter
+          twitter,
+          linkedin,
+          instagram
         }
       }
     }
