@@ -27,7 +27,6 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    console.log(this.props.pageContext)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -41,8 +40,9 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-1),
           }}
         >
-          {post.frontmatter.date + ' . ' + post.frontmatter.readingTime + ' minute de lecture'}
+          {post.frontmatter.date + ' . ' + post.frontmatter.readingTime + ' minutes de lecture'}
         </p>
+        <p>{post.frontmatter.tags}</p>
 
         <MDXRenderer>{post.body}</MDXRenderer>
         <hr
@@ -55,7 +55,7 @@ class BlogPostTemplate extends React.Component {
         <Script>
           {`
             window.gc_params = {
-                graphcomment_id: 'codewithlinda',
+                graphcomment_id: 'Le-blog-d-un-dev',
                 fixed_header_height: 0,
             };
 

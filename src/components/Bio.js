@@ -38,7 +38,6 @@ function Bio() {
                   display: `flex`,
                   justifyContent: `space-around`,
                   alignItems: `center`,
-                  // backgroundColor: 'red'
                 }}
               >
               <a 
@@ -52,7 +51,7 @@ function Bio() {
                 >
                 <Image
                   fixed={data.linkedin.childImageSharp.fixed}
-                  alt={author}
+                  alt={`It's me ${author}`}
                   style={{
                     marginRight: rhythm(1 / 2),
                     marginBottom: 0,

@@ -10,7 +10,6 @@ const Description = () => {
       query={descQuery}
       render={data => {
         const { author, social } = data.site.siteMetadata
-        console.log(data);
         return (
           <div
             style={{
@@ -20,7 +19,7 @@ const Description = () => {
           >
             <Image
               fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
+              alt={`it's me ${author}`}       // Crash here for some reason, need to be fix !!
               style={{
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
@@ -35,7 +34,6 @@ const Description = () => {
                   display: `flex`,
                   justifyContent: `space-around`,
                   alignItems: `center`,
-                  // backgroundColor: 'red'
                 }}
               >
                 <a 
