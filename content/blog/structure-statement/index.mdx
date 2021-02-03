@@ -1,13 +1,12 @@
 ---
-title: Les if else == le mal ?
+title: If isn't the only conditional statement
 date: '2021-01-30T05:35:32.169Z'
-readingTime: 2
 tags: dev
 ---
 
-En tant que débutant en programmation on nous inculque forcément les **_if, else statement_**. C'est l'essence même de la programmation, fait ça si truc est égale à, sinon fait ça.
+When you are beginner in programming, one of the first thing you have got to probably learn is, if you want make a conditional statement, you need to use if, else if, and else.
 
-Le soucis, c'est qu'ils sont souvent utilisés à outrance et sans réèl utilité comme dans cet exemple ci-desous:
+That's cool, but if we have many conditions, your code can look like a garbage:
 
 <h2 style="color: #ff5e78"># Bad Practice</h2>
 
@@ -18,40 +17,42 @@ Le soucis, c'est qu'ils sont souvent utilisés à outrance et sans réèl utilit
   int statusCode = 404;
 
   if (statusCode == 404) {
-    print('OOpsi tu es perdu !!');
+    print('OOpsi you are lost !!');
   } else if (statusCode == 401) {
-    print('Hum.. t\'es qui toi? 🤭');
+    print('Hum.. who are you? 🤭');
   } else if (statusCode == 500 || statusCode == 503) {
-    print('Sorry, Roger c\'est pris les pieds dans les cables ...');
+    print('Sorry, Gabe has broke the server...');
   } else {
-    print('Bon surf buddy 😏');
+    print('Have fun buddy 😏');
   }
 
 ```
 #### 2- **If, Else**
 
 ```js
-// Code status très douteux 😂 #dart
+// Code status 😂 #dart
   int status(int code) {
     if (code == 404) {
-      print('OOpsi tu es perdu');
+      print('OOpsi you are lost !!');
       return 1;
     else
-      print('Ça c\'est peut être bien passé');
+      print('Maybe it\'s ok 😎');
       return 0;
     }
   }
 ```
 
-Je sais pas ce que vous en pensez, mais tout ça peut vite devenir très fouillit, et on risque d'annéantir toute volonté de compréhension d'un collègue ou même d'un moi du future !
+we risk destroying any will to understand of a colleague or even a self of the future !
 
->Codez toujours comme si la personne qui allait maintenir votre code était un violent psychopathe qui sait où vous habitez.
+> “Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live“.
 >
 >― John Woods
 
 ---
 
 <h2 style="color: #18C79A"># Good Practice</h2>
+
+In this case, in my opinion the ***switch statement*** sounds to be a better option, more readable and more structured.
 
 #### -1 **Switch Statement**
 ```js
@@ -60,16 +61,16 @@ Je sais pas ce que vous en pensez, mais tout ça peut vite devenir très fouilli
 
   switch (statusCode) {
     case 404:
-      print('OOpsi tu es perdu !!');
+      print('OOpsi you are lost !!');
       break;
     case 401:
-      print('Hum as tu plus de 18 ans 🤭');
+      print('Hum.. who are you? 🤭');
       break;
     case 500 || 503:
-      print('Sorry, Roger c\'est pris les pieds dans les cables ...');
+      print('Sorry, Gabe has broke the server...');
       break;
     default:
-      print('Bon surf buddy 😏');
+      print('Have fun buddy 😏');
       break;
 }
 ```
@@ -77,15 +78,15 @@ Je sais pas ce que vous en pensez, mais tout ça peut vite devenir très fouilli
 #### -2 **If statement**
 
 ```js
-
-int status(int code) {
-  if (code == 404) {
-    print('OOpsi tu es perdu');
-    return 1;
-  }
-  print('Ça c\'est peut être bien passé');
-  return 0;
+// The else is never useful
+  int status(int code) {
+    if (code == 404) {
+      print('OOpsi you are lost !!');
+      return 1;
+    }
+    print('Maybe it\'s ok 😎');
+    return 0;
 }
 ```
 
-Pour le dernier exemple on voit que j'ai supprimé le ***else***, ça parraît futile, mais en réalité vous pouvez toujours faire ça, donc à quoi bon surchargé votre code de charactères inutiles ?
+The else statement in this case is useless, and in many cases it can be deleted.

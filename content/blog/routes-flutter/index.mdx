@@ -1,15 +1,14 @@
 ---
-title: Les routes _#Flutter
+title: Routing system in Flutter
 date: '2021-01-30T02:35:32.169Z'
-readingTime: < 2
 tags: flutter
 ---
 
 ![Flutter logo](./flutter.png)
 
-Ici, je vais vous expliquez comment faire un system de routes simple avec flutter.
+Today I'm gonna show you, how to make a simple routing system with Flutter.
 
-A la racine de votre projet dans le Widget nommé par default ***MyApp***, déclarez vos routes comme ceci:
+At the main.dart file, in the Widget named ***MyApp***:
 
 ```js
   return MaterialApp(
@@ -21,9 +20,15 @@ A la racine de votre projet dans le Widget nommé par default ***MyApp***, décl
   )
 ```
 
-Ensuite il suffit de faire un button dans votre HomePage par exemple et mettre dans le *OnPressed*:
+<!-- Ensuite il suffit de faire un button dans votre HomePage par exemple et mettre dans le *OnPressed*: -->
+Now, you can put in the ***onPressed*** method inside a ***Button*** for example:
 ```js
-  Navigator.pushNamed(context, '/profile');
+// #dart
+  RaisedButton(
+    onPressed: () => Navigator.pushNamed(context, '/profile'),
+    child: Text('Redirect to profile page')
+  )
+  
 ```
 
-et vous serez directement redirigé vers la dite page.
+and it's done ✅!.
