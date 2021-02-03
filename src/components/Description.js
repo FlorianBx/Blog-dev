@@ -19,7 +19,7 @@ const Description = () => {
           >
             <Image
               fixed={data.avatar.childImageSharp.fixed}
-              alt={`it's me ${author}`}       // Crash here for some reason, need to be fix !!
+              alt={author}
               style={{
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,

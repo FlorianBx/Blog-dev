@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Badge = ({ tags, url }) => {
+const Badge = ({ tags }) => {
   return (
     <div style={{ cursor: `pointer`, display: `inline-block` }}>
       <div style={{
@@ -21,6 +21,7 @@ const Badge = ({ tags, url }) => {
 }
 
 const _gettingColorFromTags = (tags) => {
+  // List of Tags Available ...
   const colorByLanguage = [
     {language: 'flutter', color: `#44BFF3`},
     {language: 'dart', color: `#00B4A9`},

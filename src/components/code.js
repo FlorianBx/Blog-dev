@@ -1,5 +1,4 @@
 import React from 'react'
-import { render } from 'react-dom'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
