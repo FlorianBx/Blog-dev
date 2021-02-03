@@ -30,7 +30,7 @@ const TagPost = ({ ...props }) => {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date + ' . ' + node.frontmatter.readingTime + ' minutes de lecture'}</small>
+              <small>{node.frontmatter.date + ' . ' + node.timeToRead + ' min read'}</small>
               <br />
               <Badge tags={node.frontmatter.tags} />
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
@@ -61,9 +61,9 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            readingTime
             tags
           }
+          timeToRead
         }
       }
     }

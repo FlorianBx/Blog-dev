@@ -35,7 +35,8 @@ const BlogIndex = ({ location, ...props }) => {
                 {title}
               </Link>
             </h3>
-            <small>{node.frontmatter.date + ' . ' + node.frontmatter.readingTime + ' minutes de lecture'}</small>
+            {console.log(node.frontmatter.readingTime)}
+            <small>{node.frontmatter.date + ' . ' + node.timeToRead + ' min read'}</small>
             <br />
             <Link to={`/tags/${node.frontmatter.tags}`}>
               <Badge tags={node.frontmatter.tags} />
@@ -67,9 +68,9 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            readingTime
             tags
           }
+          timeToRead
         }
       }
     }

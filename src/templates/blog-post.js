@@ -40,7 +40,7 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-1),
           }}
         >
-          {post.frontmatter.date + ' . ' + post.frontmatter.readingTime + ' minutes de lecture'}
+          {post.frontmatter.date + ' . ' + post.timeToRead + ' min read'}
         </p>
         <p>{post.frontmatter.tags}</p>
 
@@ -111,8 +111,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        readingTime
       }
+      timeToRead
       body
     }
   }
