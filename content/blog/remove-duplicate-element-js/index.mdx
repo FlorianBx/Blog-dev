@@ -1,0 +1,54 @@
+---
+title: Remove array duplicates
+date: '2021-02-05T02:35:32.169Z'
+tags: javascript
+---
+
+Hey, there. I know this blog speak mainly about Flutter/Dart, but sometimes I’ll probably speak about other programming languages 😉.
+
+So, how to remove duplicate values in an array. I use ES6 version of the javascript I'll show you 2 ways to do that.
+
+#### -1 Set (my favorite)
+```js 
+const array = ['🥐', '🥖', 1, 1, 1, 12, '🥖']
+
+[...new Set(array)]
+
+```
+
+Result:
+
+```js
+  (4) ["🥐", "🥖", 1, 12]
+```
+
+---
+
+#### -2 Filter
+```js 
+const array = ['🥐', '🥖', 1, 1, 1, 12, '🥖']
+
+array.filter((item, index) => array.indexOf(item) === index)
+```
+
+Result:
+
+```js
+  (4) ["🥐", "🥖", 1, 12]
+```
+
+ ***Filter Method:***
+The filter method creates a new array with all elements that pass the test implemented by the provided function.
+
+***indexOf Method:***
+The indexOf method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+| item | index | indexOf | return |
+| ---- | ----- | ------- | ------ |
+|  🥐  |  0    |   0     |<span style="color: #e97878"> false</span>  |
+| 🥖   | 1    |   1      |<span style="color: #e97878">false </span> |
+| 1   |   2   |   2     | <span style="color: #e97878">false </span>  |
+| 1   |   3   |   2     | <span style="color: #75cfb8">true  </span>  |
+| 1   |   4   |   2     | <span style="color: #75cfb8">true  </span>  |
+| 12  |   5   |   5     | <span style="color: #e97878">false </span>  |
+| 🥖  |   6   |   1     | <span style="color: #75cfb8">true  </span>  |

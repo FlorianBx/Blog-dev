@@ -25,7 +25,7 @@ const _gettingColorFromTags = (tags) => {
   const colorByLanguage = [
     {language: 'flutter', color: `#44BFF3`},
     {language: 'dart', color: `#00B4A9`},
-    {language: 'javascript', color: `#c9b418`},
+    {language: 'javascript', color: `#ffc478`},
     {language: 'react', color: `#01D5F7`},
     {language: 'design', color: `#0E0627`}
   ]
