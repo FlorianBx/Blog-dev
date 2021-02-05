@@ -1,20 +1,19 @@
 ---
-title: Faire un splashScreen
+title: How to do make a splash screen
 date: '2021-01-30T07:35:32.169Z'
-readingTime: 4
 tags: flutter
 ---
 
 ## QuickTips Flutter:
 
-Sur beaucoup d'application, on a une sorte de page de chargement à leur lancement. C'est ce que l'on appel un splash screen et nous allons voir ici comment faire cette chose de la manière la plus simple possible.
+On many applications, there is a sort of loading page when they are launched. This is what we call a splash screen and we will see here how to do this thing in the simplest way possible.
 
-### -1 Créer le routeur
+### -1 Create the root
 
-  Oui parcequ'en fait, faire une page qui affiche un logo ou un chargement pendant ***X*** secondes, il faut bien rediriger quelque part après, et c'est la que le routeur entre en action.
+  Yes, because in fact, make a page that displays a logo or a load for ***X*** seconds, you have to redirect somewhere after, and that’s when the router comes into action.
 
   ```js
-  // Router
+  // main.dart
   class MyApp extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
@@ -28,55 +27,46 @@ Sur beaucoup d'application, on a une sorte de page de chargement à leur lanceme
   }
   ```
 
-  Bon à ce niveau le routeur: done ✅
-
-### -2 Le Splash Screen
-
-  A ce niveau il est temps de rentrer dans le vif du sujet:
+### -2 Create the splashScreen
 
   ```js
-  // SplashScreen
-    class SplashScreen extends StatefulWidget {
-      @override
-      _SplashScreenState createState() => _SplashScreenState();
+  // SplashScreen.dart
+  class SplashScreen extends StatefulWidget {
+    @override
+    _SplashScreenState createState() => _SplashScreenState();
+  }
+
+  class _SplashScreenState extends State<SplashScreen> {
+    @override
+    void initState() {
+      super.initState();
+      Future.delayed(const Duration(milliseconds: 2000),
+        () => Navigator.pushNamed(context, '/home-screen'),
+      );
     }
 
-    class _SplashScreenState extends State<SplashScreen> {
-      @override
-      void initState() {
-        super.initState();
-        Future.delayed(const Duration(milliseconds: 2000),
-          () => Navigator.pushNamed(context, '/home-screen'),
-        );
-      }
-
-      @override
-      Widget build(BuildContext context) {
-        return Scaffold(
-          backgroundColor: Colors.white,
-          body: Center(
-            child: FlutterLogo(
-              size: 100.0,
-            ),
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: FlutterLogo(
+            size: 100.0,
           ),
-        );
-      }
+        ),
+      );
     }
+  }
 ```
 
 ---
 
-## **Time to explain:**
-
-La partie qui peut poser soucis se trouve dans l'initState, la ou toute la logique du splash screen s'effectue en fin de compte.
+### **Time to explain:**
 
 #### <span style="color: #0276E8">-1 Future</span>
-Un future est utilisé pour représenter une valeur potentielle, ou une erreur, qui sera disponible à un moment donné dans le futur.
+
+A Future is used to represent a potential value, or error, that will be available at some time in the future. 
+Receivers of a Future can register callbacks that handle the value or error once it is available.
 
 #### <span style="color: #0276E8">-2 Future<span style="color: #BC0256">.delayed</span></span>
-Crée un futur qui exécute son calcul après un délai.
-
-Ce **.Delayed** prend une **Duration** qui est ni plus ni moins que la durée avant execution de la function.
-
-
-Et voilà c'est tout pour ce QuickTips, bon code à tous.
+The computation will be executed after the given **Duration** has passed, and the future is completed with the result of the computation.

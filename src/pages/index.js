@@ -9,6 +9,7 @@ import Badge from '../components/badge'
 import TagsBar from '../components/TagsBar'
 
 
+
 const BlogIndex = ({ location, ...props }) => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
@@ -20,7 +21,9 @@ const BlogIndex = ({ location, ...props }) => {
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`, `flutter`, `dart`]}
       />
+      <hr />
       <Description />
+      <hr />
       <TagsBar tag={data.allMdx.edges} />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
@@ -35,8 +38,7 @@ const BlogIndex = ({ location, ...props }) => {
                 {title}
               </Link>
             </h3>
-            {console.log(node.frontmatter.readingTime)}
-            <small>{node.frontmatter.date + ' . ' + node.timeToRead + ' min read'}</small>
+            <small>{node.frontmatter.date + ' . ☕️ ' + node.timeToRead + ' min read'}</small>
             <br />
             <Link to={`/tags/${node.frontmatter.tags}`}>
               <Badge tags={node.frontmatter.tags} />

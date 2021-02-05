@@ -1,0 +1,86 @@
+---
+title: Stateful vs stateless Widget
+date: '2021-02-02T07:35:32.169Z'
+tags: flutter
+---
+
+Hey, here we gonna show, how to build one simple Widget in Stateful, and one Stateless.
+To explain the main difference between their, state is information that can be read
+synchronously when the widget is built and might change during the lifetime of the widget.
+
+It is the responsibility of the widget implementer to ensure that the State is promptly
+notified when such state changes, using state and setState.
+
+#### Stateless Widget
+
+```javascript
+// #Stateless Widget
+  class Profile extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        body: Stack(children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Hello from 🇫🇷 🚀',
+                style: TextStyle(fontSize: 56.0),
+              ),
+            ],
+          )
+        ]),
+        backgroundColor: Colors.black,
+      );
+    }
+  }
+```
+
+Has you can see, it's just a simple static widget, nothing can be change in this one.
+
+#### Stateful Widget
+
+```javascript
+// #Switch ligh to dark with a state
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  bool _bgColor = false;
+  
+  void _dayNight() {
+    setState(() {
+      _bgColor = !_bgColor;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: !_bgColor ? Colors.white : Color(0xFF21232a),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF282C34),
+        brightness: Brightness.dark,
+      ),
+      body: Container(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _dayNight,
+        backgroundColor: Color(0xFF282C34),
+        child: Icon(
+          Icons.lightbulb,
+          color: !_bgColor ? Colors.white : Colors.yellow,
+        ),
+      ),
+    );
+  }
+}
+```
+
+<p style="text-align: center">
+  <image width="250" src="./daynight.gif" />
+</p>
+
+With the stateful widget, it's really cool because the state can
+remember preceding events or user interactions the remembered information is called the state of the system.

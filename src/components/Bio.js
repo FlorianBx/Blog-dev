@@ -29,9 +29,7 @@ const Bio = () => {
             />
             <div>
               <p>
-                Hey, moi c'est <strong>{author}</strong>. Il est écrit dans les tablettes de Skélos
-                que seul un gnome des Forêts du Nord unijambiste dansant à la pleine lune au milieu 
-                de douze statuettes de Gladeulfeurha enroulées dans un jambon trouvera un sens à cette bio !!
+                Hey, i'm <strong>{author}</strong>. Flutter mobile developer, 
               </p>
               <div
                 style={{

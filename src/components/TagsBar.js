@@ -13,7 +13,7 @@ const TagsBar = ({ ...props }) => {
     <div style={{display: 'flex', justifyContent: 'start'}}>
       { uniqTags.map((tag, key) => {
         return (
-          <Link key={key} className='link' to={`/tags/${tag}`}>
+          <Link key={key} className='link' style={{ paddingRight: `1em`}} to={`/tags/${tag}`}>
             <Badge tags={tag} />
           </Link>
         )

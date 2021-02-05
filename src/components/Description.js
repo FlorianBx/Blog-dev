@@ -1,8 +1,9 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 
 import { rhythm } from '../utils/typography'
+import '../styles/global.css'
 
 const Description = () => {
   return ( 
@@ -14,7 +15,7 @@ const Description = () => {
           <div
             style={{
               display: `flex`,
-              marginBottom: rhythm(2.5),
+              marginBottom: rhythm(1 / 2),
             }}
           >
             <Image
@@ -28,12 +29,17 @@ const Description = () => {
               }}
             />
             <div>
-              <p>Lire peu, apprendre beaucoup 🚀</p>
+              <p style={{ width: rhythm(12 / 1), textAlign: `center`, marginTop: `20px`}}>
+                Personal blog by <Link target="_blank" className="link" to={`https://www.instagram.com/${social.instagram}`}>Florian Beaumont</Link>
+                <br />
+                Read less, learn more.<span style={{ fontSize: `20px`}}> 🚀</span>
+              </p>
               <div
                 style={{
                   display: `flex`,
                   justifyContent: `space-around`,
                   alignItems: `center`,
+                  marginTop: `-20px`
                 }}
               >
                 <a 
