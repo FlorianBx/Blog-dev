@@ -30,7 +30,7 @@ const Description = () => {
             />
             <div>
               <p style={{ width: rhythm(8 / 1), textAlign: `center`, marginTop: `20px`}}>
-                Personal blog by <Link target="_blank" className="link" to={`https://www.instagram.com/${social.instagram}`}>Florian Beaumont</Link>
+                Personal blog by <a target="_blank" className="link" href={`https://www.instagram.com/${social.instagram}`}>Florian Beaumont</a>
                 <br />
                 Read less, learn more.<span style={{ fontSize: `20px`}}> 🚀</span>
               </p>

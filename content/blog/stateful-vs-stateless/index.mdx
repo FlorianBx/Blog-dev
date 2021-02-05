@@ -42,40 +42,40 @@ Has you can see, it's just a simple static widget, nothing can be change in this
 
 ```javascript
 // #Switch ligh to dark with a state
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  bool _bgColor = false;
-  
-  void _dayNight() {
-    setState(() {
-      _bgColor = !_bgColor;
-    });
+  class HomePage extends StatefulWidget {
+    @override
+    _HomePageState createState() => _HomePageState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: !_bgColor ? Colors.white : Color(0xFF21232a),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF282C34),
-        brightness: Brightness.dark,
-      ),
-      body: Container(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _dayNight,
-        backgroundColor: Color(0xFF282C34),
-        child: Icon(
-          Icons.lightbulb,
-          color: !_bgColor ? Colors.white : Colors.yellow,
+  class _MyHomePageState extends State<MyHomePage> {
+    bool _bgColor = false;
+    
+    void _dayNight() {
+      setState(() {
+        _bgColor = !_bgColor;
+      });
+    }
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        backgroundColor: !_bgColor ? Colors.white : Color(0xFF21232a),
+        appBar: AppBar(
+          backgroundColor: Color(0xFF282C34),
+          brightness: Brightness.dark,
         ),
-      ),
-    );
+        body: Container(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _dayNight,
+          backgroundColor: Color(0xFF282C34),
+          child: Icon(
+            Icons.lightbulb,
+            color: !_bgColor ? Colors.white : Colors.yellow,
+          ),
+        ),
+      );
+    }
   }
-}
 ```
 
 <p style="text-align: center">

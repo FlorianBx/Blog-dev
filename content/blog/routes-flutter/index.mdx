@@ -11,23 +11,24 @@ Today I'm gonna show you, how to make a simple routing system with Flutter.
 At the main.dart file, in the Widget named ***MyApp***:
 
 ```js
-  return MaterialApp(
-    home: HomePage(),
-    routes: {
-      '/home-page': (context) => HomePage(),
-      '/profile': (context) => Profile(),
-    },
-  )
+// main.dart
+return MaterialApp(
+  home: HomePage(),
+  routes: {
+    '/home-page': (context) => HomePage(),
+    '/profile': (context) => Profile(),
+  },
+)
 ```
 
 <!-- Ensuite il suffit de faire un button dans votre HomePage par exemple et mettre dans le *OnPressed*: -->
 Now, you can put in the ***onPressed*** method inside a ***Button*** for example:
 ```js
-// #dart
-  RaisedButton(
-    onPressed: () => Navigator.pushNamed(context, '/profile'),
-    child: Text('Redirect to profile page')
-  )
+// HomePage.dart
+RaisedButton(
+  onPressed: () => Navigator.pushNamed(context, '/profile'),
+  child: Text('Redirect to profile page')
+)
   
 ```
 

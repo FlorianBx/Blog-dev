@@ -27,6 +27,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+          shortname: `https-fbdevelop-netlify-app`
+      }
+  },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

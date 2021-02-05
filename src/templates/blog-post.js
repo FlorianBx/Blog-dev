@@ -1,27 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import Script from "react-inline-script"
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
+import DisqusComments from '../components/DisqusComment'
 
 const BlogPostTemplate = ({ ...props }) => {
-
-  useEffect(() => {
-    window.gc_params = {
-      graphcomment_id: 'Le-blog-d-un-dev',
-      fixed_header_height: 0,
-    };
-
-    (() => {
-      var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
-      gc.src = 'https://graphcomment.com/js/integration.js?' + Math.round(Math.random() * 1e8);
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
-    })();
-  }, [])
 
   const post = props.data.mdx
   const siteTitle = props.data.site.siteMetadata.title
@@ -50,21 +37,7 @@ const BlogPostTemplate = ({ ...props }) => {
         }}
       />
       <Bio />
-      <div id="graphcomment"></div>
-      <Script>
-        {`
-          window.gc_params = {
-              graphcomment_id: 'Le-blog-d-un-dev',
-              fixed_header_height: 0,
-          };
-
-          (function() {
-            var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
-            gc.src = 'https://graphcomment.com/js/integration.js?' + Math.round(Math.random() * 1e8);
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
-          })();
-        `}
-      </Script>
+      <DisqusComments url={post.slug} identifier={post.id} title={post.frontmatter.title} />
       <ul
         style={{
           display: `flex`,
@@ -110,6 +83,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
       }
+      slug
       timeToRead
       body
     }
