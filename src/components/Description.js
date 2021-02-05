@@ -29,7 +29,7 @@ const Description = () => {
               }}
             />
             <div>
-              <p style={{ width: rhythm(12 / 1), textAlign: `center`, marginTop: `20px`}}>
+              <p style={{ width: rhythm(8 / 1), textAlign: `center`, marginTop: `20px`}}>
                 Personal blog by <Link target="_blank" className="link" to={`https://www.instagram.com/${social.instagram}`}>Florian Beaumont</Link>
                 <br />
                 Read less, learn more.<span style={{ fontSize: `20px`}}> 🚀</span>
