@@ -1,0 +1,49 @@
+---
+title: 'Display an array in jsx'
+date: '2021-10-25T05:35:32.169Z'
+tags: javascript
+---
+
+Today it's about: how to loop over an array to render its contents?
+
+### Loop with style 😎:
+
+```jsx
+const myArray = ['ReactJS', 'VueJS', 'NodeJS']
+
+return (
+  <div classname="container-app">
+    <p>
+      {myArray.map((item, index) => {
+        return item
+      })}
+    </p>
+  </div>
+)
+```
+<br />
+If you want to put all in the same line, separate with commas, you can do like this:
+
+```jsx
+<div classname="container-app">
+  <p>
+    {myArray.map((item, index) => {
+      return `${index ? ',' : ''} ${item}`
+    })}
+  </p>
+</div>
+```
+<br />
+You can also render it inside a list like that, but the method is always the same
+
+```jsx
+<div classname="container-app">
+  <ul>
+    <li>
+      {myArray.map((item, index) => {
+        return `${index ? ',' : ''} ${item}`
+      })}
+    </li>
+  </ul>
+</div>
+```

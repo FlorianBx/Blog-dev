@@ -29,7 +29,7 @@ const Bio = () => {
             />
             <div>
               <p>
-                Hey, i'm <strong>{author}</strong>. Flutter mobile developer, 
+                Hey, i'm <strong>{author}</strong>. Web | Mobile developer, 
                 just a random dev who wants share some tips about one of his many passions. 
               </p>
               <div

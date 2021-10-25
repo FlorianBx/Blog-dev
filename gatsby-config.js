@@ -31,7 +31,7 @@ module.exports = {
       options: {
           shortname: `https-fbdevelop-netlify-app`
       }
-  },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -118,6 +118,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              linkImagesToOriginal: false,
             },
           },
           {
